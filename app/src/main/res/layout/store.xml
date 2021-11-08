@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,9 +7,231 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/img" />
+        android:id="@+id/HamBurger"
+        android:layout_width="74dp"
+        android:layout_height="46dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:src="@drawable/ic_hamburger"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/StoreTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_row="0"
+        android:layout_column="1"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="270dp"
+        android:gravity="center"
+        android:text="스토어"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        tools:layout_editor_absoluteX="75dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <SearchView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="24dp" />
+
+    <TextView
+        android:id="@+id/BestGoods"
+        android:layout_width="84dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/HamBurger"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="296dp"
+        android:textSize="15dp"
+        android:text="베스트상품"
+        />
+
+    <TextView
+        android:id="@+id/RecommendGoods"
+        android:layout_width="84dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/HamBurger"
+        android:layout_toRightOf="@+id/BestGoods"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="117dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="210dp"
+        android:textSize="15dp"
+        android:text="추천상품" />
+
+    <TextView
+        android:id="@+id/BigPlant"
+        android:layout_width="84dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/HamBurger"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="186dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="140dp"
+        android:text="대형식물"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/SmallPlant"
+        android:layout_width="84dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/HamBurger"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="66dp"
+        android:text="소형식물"
+        android:textSize="15dp" />
 
 
-</LinearLayout>
+
+
+            <ImageButton
+                android:id="@+id/StoreEvent1"
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:layout_below="@+id/BestGoods"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="29dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/store_img1" />
+
+                    <ImageButton
+                        android:id="@+id/StoreEvent2"
+                        android:layout_width="300dp"
+                        android:layout_height="150dp"
+                        android:layout_below="@+id/BestGoods"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="340dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="-130dp"
+                        android:src="@drawable/store_img2" />
+
+
+
+    <TextView
+        android:id="@+id/StoreRecently"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/StoreEvent1"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="306dp"
+        android:text="최근 본 상품"
+        android:textColor="@color/black"
+        android:textSize="15dp" />
+
+<!-- 지우지마셈
+    <ImageButton
+        android:id="@+id/RecentlyGoods1"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@+id/StoreRecently"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="260dp"
+        android:src="@drawable/store_img3" />
+
+    <ImageButton
+        android:id="@+id/RecentlyGoods2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@+id/StoreRecently"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="166dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="125dp"
+        android:src="@drawable/store_img4" />
+
+    <ImageButton
+        android:id="@+id/RecentlyGoods3"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@+id/StoreRecently"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="302dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="-11dp"
+        android:src="@drawable/store_img5" />
+
+지우지마셈 -->
+
+
+    <!-- 최근 본 상품 임시 테스트용 -->
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/StoreRecently"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="260dp"
+        android:layout_marginEnd="25dp">
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/RecentlyGoods4"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/store_img3"/>
+
+
+
+
+
+                <ImageButton
+                    android:id="@+id/RecentlyGoods5"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="166dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="125dp"
+                    android:src="@drawable/store_img4" />
+
+                <ImageButton
+                    android:id="@+id/RecentlyGoods6"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/store_img5" />
+
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+
+    </FrameLayout>
+
+
+</RelativeLayout>
