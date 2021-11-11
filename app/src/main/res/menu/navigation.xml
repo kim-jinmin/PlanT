@@ -25,4 +25,11 @@
         android:icon="@drawable/ic_store"
         android:title="스토어" />
 
+    <item
+        android:id="@+id/NaviDb"
+        android:enabled="true"
+        android:icon="@drawable/ic_db"
+        android:title="DB 입력" />
+
+
 </menu>

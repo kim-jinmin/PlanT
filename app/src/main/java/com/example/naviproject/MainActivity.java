@@ -7,11 +7,23 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference databaseReference = database.getReference();
     private BottomNavigationView bottomNavigationView; //바텀 네비게이션 뷰
     private FragmentManager fm;
     private FragmentTransaction ft;
@@ -20,10 +32,65 @@ public class MainActivity extends AppCompatActivity {
     private board board;
     private store store;
 
+    Button bt1, bt2;
+    EditText name, title, review, price, inp;
+    TextView result1, result2, result3, result4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        bt1 = (Button) findViewById(R.id.button);
+        name = (EditText) findViewById(R.id.StoreName);
+        title = (EditText) findViewById(R.id.GoodsPageTitle);
+        review = (EditText) findViewById(R.id.ReviewCount);
+        price = (EditText) findViewById(R.id.GoodsPrice);
+
+        bt2 = (Button) findViewById(R.id.button2);
+        inp = (EditText) findViewById(R.id.inp);
+        result1 = (TextView) findViewById(R.id.textView);
+        result2 = (TextView) findViewById(R.id.textView2);
+        result3 = (TextView) findViewById(R.id.textView3);
+        result4 = (TextView) findViewById(R.id.textView4);
+
+        bt1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                add(name.getText().toString(), title.getText().toString(), review.getText().toString(), price.getText().toString());
+            }
+        });
+
+        bt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String a = String.valueOf(inp.getText());
+                getgoods(a);
+            }
+        });
+
+        public void add(String name, String title, String review, String price) {
+            goods goods;
+            goods = new goods(name, title, review, price);
+            databaseReference.child("goods").child(name).setValue(goods);
+        }
+
+        public void getgoods(String s) {
+            DatabaseReference data = databaseReference.child("goods").child(s);
+            data.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    goods value = snapshot.getValue(goods.class);
+                    result1.setText(value.name);
+                    result2.setText(value.title);
+                    result3.setText(value.review);
+                    result4.setText(value.price);
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
 
         bottomNavigationView = findViewById(R.id.Navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -77,6 +144,8 @@ public class MainActivity extends AppCompatActivity {
                 ft.replace(R.id.Frame, store);
                 ft.commit();
                 break;
+
+
 
         }
 
